@@ -92,7 +92,7 @@
     mergedBytes = bytes;
     const baseA = fileA.name.replace(/\.pdf$/i, "");
     const baseB = fileB.name.replace(/\.pdf$/i, "");
-    mergedName = `${baseA}+${baseB}-merged.pdf`;
+    mergedName = `GennoMerge.pdf`;
 
     $("downloadMergedBtn").disabled = false;
     setStatus(`Done.\nMerged: ${fileA.name} & ${fileB.name}`, "info");
