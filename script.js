@@ -114,7 +114,7 @@
 
     mustGet("downloadMergedBtn").addEventListener("click", () => {
       if (!mergedBytes) {
-        setStatus("Nothing to download yet. Click Merge first.", "warn");
+        setStatus("Nothing to download yet. Click Start first.", "warn");
         return;
       }
       downloadBytes(mergedBytes, mergedName);
