@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Merge</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+
+    .topNav {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .topNav a {
+      display: inline-block;
+      padding: 8px 12px;
+      background: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
+    .topNav a:hover { background: #111; }
+    .topNav a.active { background: #2196F3; }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: flex-end;
+      margin-bottom: 12px;
+    }
+    .col { display: flex; flex-direction: column; gap: 6px; }
+    label { font-size: 0.95em; color: #333; }
+
+    button { padding: 8px 14px; border-radius: 4px; border: 0; cursor: pointer; }
+    button.primary { background: #2196F3; color: #fff; }
+    button.primary:hover { background: #1976D2; }
+    button:disabled { background: #ccc !important; cursor: not-allowed; color: #444; }
+
+    #statusBox {
+      max-width: 900px;
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      background: #fff;
+      color: #333;
+      margin: 10px 0 18px;
+      white-space: pre-wrap;
+    }
+    #statusBox.info { border-color: #cfe3ff; background: #f4f9ff; }
+    #statusBox.warn { border-color: #ffe6a6; background: #fff9e6; }
+    #statusBox.error { border-color: #ffb5b5; background: #fff3f3; }
+
+    #log { color: #666; font-size: 0.9em; white-space: pre-wrap; margin-top: 12px; }
+  </style>
+</head>
+
+<body>
+  <div class="topNav">
+    <a href="https://gennonotes.github.io/Compare">Compare</a>
+    <a class="active" href="https://gennonotes.github.io/Merge">Merge</a>
+    <a href="https://gennonotes.github.io/Split">Split</a>
+  </div>
+
+  <h2>Merge PDFs</h2>
+
+  <div class="row">
+    <div class="col">
+      <label for="pdfA">PDF 1</label>
+      <input type="file" id="pdfA" accept="application/pdf" />
+    </div>
+
+    <div class="col">
+      <label for="pdfB">PDF 2</label>
+      <input type="file" id="pdfB" accept="application/pdf" />
+    </div>
+
+    <button id="mergeBtn" class="primary">Merge</button>
+  </div>
+
+  <div class="row">
+    <button id="downloadMergedBtn" class="primary" disabled>Download merged PDF</button>
+  </div>
+
+  <div id="statusBox" class="info">Ready.</div>
+  <div id="log"></div>
+
+  <!-- pdf-lib -->
+  <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
