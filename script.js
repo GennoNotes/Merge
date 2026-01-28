@@ -67,11 +67,11 @@
 
   function updateStatusFromSelection() {
     if (!filesSelected()) {
-      setStatus("Please select both PDFs (PDF 1 and PDF 2).", "warn");
+      setStatus("Select two files to merge.", "warn");
       $("downloadMergedBtn").disabled = true;
       return;
     }
-    setStatus("Ready to merge. Click Merge.", "info");
+    setStatus("Files are ready to merge.", "info");
   }
 
   async function doMerge() {
@@ -83,7 +83,7 @@
       return;
     }
 
-    setStatus("Merging PDFs…", "info");
+    setStatus("Merging files…", "info");
     $("downloadMergedBtn").disabled = true;
     mergedBytes = null;
 
@@ -95,7 +95,7 @@
     mergedName = `${baseA}+${baseB}-merged.pdf`;
 
     $("downloadMergedBtn").disabled = false;
-    setStatus(`Done.\nMerged: ${fileA.name} + ${fileB.name}`, "info");
+    setStatus(`Done.\nMerged: ${fileA.name} & ${fileB.name}`, "info");
   }
 
   function bindEvents() {
@@ -121,7 +121,6 @@
     });
 
     setStatus("Ready. Select two PDFs, then click Merge.", "info");
-    log("Merge script loaded.");
     updateStatusFromSelection();
   }
 
